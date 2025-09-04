@@ -1,0 +1,13 @@
+# Configuración global para ServerGuard
+global-rules:
+  # ... (las otras reglas se quedan igual)
+
+# --- SECCIÓN ACTUALIZADA ---
+force-spawn-on-join:
+  enabled: true
+  world: "world"
+  x: 0.5
+  y: 78.0
+  z: 0.5
+  yaw: 180   # 180 es la dirección Norte
+  pitch: 0

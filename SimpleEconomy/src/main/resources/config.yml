@@ -1,0 +1,11 @@
+# Configuración de la base de datos
+database:
+  host: 'localhost'
+  port: '3306'
+  database: 'simple_economy'
+  user: 'root'
+  password: ''
+
+# Configuración general
+settings:
+  initial-balance: 1000.0

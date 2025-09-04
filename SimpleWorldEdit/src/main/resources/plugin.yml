@@ -1,0 +1,27 @@
+name: SimpleWorldEdit
+version: 1.0
+main: com.tuservidor.simpleworldedit.SimpleWorldEdit
+api-version: '1.20'
+author: TuNombre
+description: Una versión simplificada de WorldEdit.
+commands:
+  wand:
+    description: Te da la varita de selección.
+    aliases: [w]
+    permission: simpleworldedit.command.wand
+  wset:
+    description: Rellena la selección con un bloque.
+    usage: "/wset"
+    permission: simpleworldedit.command.set
+  wundo:
+    description: Deshace la última operación.
+    permission: simpleworldedit.command.undo
+  wcopy:
+    description: Copia la selección a tu portapapeles.
+    permission: simpleworldedit.command.copy
+  wpaste:
+    description: Pega la selección de tu portapapeles.
+    permission: simpleworldedit.command.paste
+  wclear:
+    description: Limpia la selección (la rellena con aire).
+    permission: simpleworldedit.command.clear

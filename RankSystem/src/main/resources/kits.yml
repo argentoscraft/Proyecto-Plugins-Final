@@ -1,0 +1,14 @@
+kits:
+  diario:
+    # Cooldown en segundos (86400 segundos = 24 horas)
+    cooldown: 86400
+    items:
+      # El formato es: ID_DEL_MATERIAL: cantidad {otros_datos}
+      - 'STONE_SWORD: 1'
+      - 'BREAD: 16'
+  vip_mensual:
+    cooldown: 2592000 # 30 días
+    items:
+      - 'DIAMOND_HELMET: 1 {display_name: "&bCasco de VIP", enchantments: {protection: 2}}'
+      - 'DIAMOND: 16'
+      - 'GOLDEN_APPLE: 8'

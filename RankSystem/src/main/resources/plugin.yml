@@ -1,0 +1,20 @@
+name: RankSystem
+version: 1.0
+main: com.tuservidor.ranksystem.RankSystem
+api-version: '1.20'
+author: TuNombre
+description: Un sistema de rangos y kits personalizado y dinámico.
+commands:
+  rank:
+    description: Gestiona todos los rangos del servidor.
+    aliases: [ranks, rango]
+    permission: ranksystem.admin.rank
+  kit:
+    description: Gestiona y reclama kits.
+    aliases: [kits]
+  setrank:
+    description: Asigna un rango a un jugador.
+    permission: ranksystem.admin.setrank
+  fly:
+    description: Activa o desactiva el modo de vuelo.
+    permission: ranksystem.command.fly

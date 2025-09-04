@@ -1,0 +1,10 @@
+name: EnchantsPlugin
+version: 1.0
+main: com.tuservidor.enchants.EnchantsPlugin
+api-version: '1.20'
+author: TuNombre
+commands:
+  encantar:
+    description: Encanta el item en tu mano sin restricciones.
+    permission: enchants.command.use
+    aliases: [ench]

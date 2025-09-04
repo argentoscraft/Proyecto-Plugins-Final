@@ -1,0 +1,13 @@
+# Configuración para las alertas de X-Ray
+xray-alerter:
+  # Tiempo en minutos para contar los minerales.
+  time-frame: 5
+  # Cantidad de minerales encontrados en ese tiempo para que salte la alerta.
+  alert-threshold: 16
+  # Lista de minerales que se consideran valiosos para la alerta.
+  tracked-ores:
+    - 'DIAMOND_ORE'
+    - 'DEEPSLATE_DIAMOND_ORE'
+    - 'ANCIENT_DEBRIS'
+    - 'EMERALD_ORE'
+    - 'DEEPSLATE_EMERALD_ORE'

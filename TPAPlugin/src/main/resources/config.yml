@@ -1,0 +1,43 @@
+# =======================================================
+# Archivo de configuración para TPAPlugin
+# =======================================================
+
+# Tiempos de espera (en segundos)
+cooldowns:
+  # Tiempo que un jugador debe esperar para volver a enviar /tpa o /tpahere a la MISMA persona.
+  tpa_specific_player: 60
+  # Tiempo de la cuenta atrás antes de teletransportarse.
+  teleport_delay: 3
+  # Tiempo de vida de una petición de TPA antes de que expire.
+  request_expiration: 60
+
+# Límites de uso
+limits:
+  # Máximo de peticiones (/tpa o /tpahere) que un jugador puede enviar en un periodo de tiempo.
+  max_requests: 3
+  # Periodo de tiempo para el límite anterior (en segundos).
+  max_requests_period: 60
+
+# Todos los mensajes del plugin. Puedes usar códigos de color con '&'.
+messages:
+  tpa_sent: "&aPetición de TPA enviada a {target}."
+  tpahere_sent: "&aPetición de TPA-Here enviada a {target}."
+  tpa_request_received: "&b{player} &quiere teletransportarse hacia ti."
+  tpahere_request_received: "&b{player} &quiere que te teletransportes hacia él."
+  accept_button: "&a&l[ACEPTAR]"
+  deny_button: "&c&l[RECHAZAR]"
+  no_pending_request: "&cNo tienes ninguna petición de TPA pendiente."
+  request_accepted_sender: "&a{target} ha aceptado tu petición."
+  request_accepted_target: "&aHas aceptado la petición de {player}."
+  request_denied_sender: "&c{target} ha rechazado tu petición."
+  request_denied_target: "&eHas rechazado la petición de {player}."
+  player_not_online: "&cEl jugador {target} no está en línea."
+  cannot_send_to_self: "&cNo puedes enviarte una petición a ti mismo."
+  on_cooldown: "&cDebes esperar {time} segundos para enviar otra petición a este jugador."
+  rate_limit_exceeded: "&cHas alcanzado el límite de {limit} peticiones por minuto."
+  teleport_countdown: "&eTeletransporte en {time}... ¡No te muevas!"
+  teleport_cancelled_movement: "&cTeletransporte cancelado porque te moviste."
+  request_expired: "&cLa petición de TPA ha expirado."
+  tpa_toggle_on: "&aAhora puedes recibir peticiones de TPA."
+  tpa_toggle_off: "&cYa no recibirás peticiones de TPA."
+  target_has_tpa_disabled: "&cEse jugador no acepta peticiones de TPA en este momento."

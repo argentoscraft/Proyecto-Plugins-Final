@@ -1,0 +1,17 @@
+name: TPAPlugin
+version: '1.0'
+main: com.tuservidor.tpaplugin.TPAPlugin
+api-version: '1.20'
+author: TuNombre
+description: Sistema de teletransporte entre jugadores.
+commands:
+  tpa:
+    description: Envía una petición de teletransporte.
+  tpahere:
+    description: Pide a un jugador que se teletransporte hacia ti.
+  tpaccept:
+    description: Acepta una petición de teletransporte.
+  tpdeny:
+    description: Rechaza una petición de teletransporte.
+  tpatoggle:
+    description: Activa o desactiva la recepción de peticiones de TPA.

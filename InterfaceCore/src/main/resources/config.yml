@@ -1,0 +1,24 @@
+# Configuración del Scoreboard
+# Podés usar códigos de color con '&' y placeholders de PlaceholderAPI
+scoreboard:
+  title: "&e&lMI SERVIDOR"
+  lines:
+    - ""
+    - "&fJugador: &a%player_name%"
+    - "&fMundo: &a%player_world%"
+    - ""
+    - "&fRango: &6%server_rank%"      # <--- CAMBIADO
+    - "&fDinero: &2$%server_money%"  # <--- CAMBIADO
+    - ""
+    - "&fOnline: &b%server_online%/%server_max_players%"
+    - ""
+    - "&ewww.argentoscraft.store"
+
+# Configuración del Tablist (la lista de jugadores que se ve con la tecla TAB)
+tablist:
+  header:
+    - '&b&lMI SERVIDOR'
+    - '&a¡Bienvenido, %player_name%!'
+  footer:
+    - '&eJugadores conectados: &f%server_online%'
+    - '&eVisitá nuestra web: www.argentoscraft.store'

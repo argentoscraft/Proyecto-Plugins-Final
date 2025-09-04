@@ -1,0 +1,13 @@
+name: AuthSystem
+version: 1.0
+main: com.tuservidor.authsystem.AuthSystem
+api-version: '1.20'
+author: TuNombre
+description: Sistema de registro y login para el servidor.
+commands:
+  register:
+    description: Regístrate por primera vez en el servidor.
+    usage: "/register <contraseña> <repetirContraseña>"
+  login:
+    description: Inicia sesión en el servidor.
+    usage: "/login <contraseña>"
