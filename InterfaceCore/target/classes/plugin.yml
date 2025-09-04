@@ -1,0 +1,32 @@
+# Nombre único de tu plugin
+name: InterfaceCore
+
+# Versión del plugin (la ponemos directamente para evitar errores)
+version: '1.0-FINAL'
+
+# Ruta completa a tu clase principal
+main: com.tuserverdor.interfacecore.InterfaceCore
+
+# Versión de la API de Spigot/Paper para la que fue hecho
+api-version: '1.18'
+
+# Dependencias DURAS: El plugin NO se activará si no encuentra PlaceholderAPI
+depend:
+  - PlaceholderAPI
+
+# Dependencias SUAVES: El plugin se activará, pero te avisará si no encuentra estos plugins
+softdepend:
+  - RankSystem
+  - SimpleEconomy
+
+# Definición de los comandos del plugin
+commands:
+  reloj:
+    description: Muestra la hora del servidor.
+    usage: /reloj
+  tienda:
+    description: Abre la tienda del servidor.
+    usage: /tienda
+  sb:
+    description: Activa o desactiva el scoreboard.
+    usage: /sb

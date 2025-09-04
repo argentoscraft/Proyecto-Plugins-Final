@@ -1,0 +1,31 @@
+name: SimpleEconomy
+version: '6.0-stable'
+main: com.tuserverdor.simpleeconomy.SimpleEconomy
+api-version: 1.19
+author: Santtiu
+description: Un plugin de economía simple y multi-mundo.
+commands:
+  balance:
+    description: Muestra tu balance actual.
+    aliases: [bal, money]
+  eco:
+    description: Comandos de administración de economía.
+    permission: simpleeconomy.eco
+    aliases: [economy]
+  pay:
+    description: Paga a otro jugador.
+  shop:
+    description: Abre la tienda de la economía actual.
+  shopadmin:
+    description: Comandos de administración de la tienda.
+    permission: simpleeconomy.shopadmin
+  leaderboard:
+    description: Muestra el top de jugadores con más dinero.
+    aliases: [baltop, moneytop]
+permissions:
+  simpleeconomy.eco:
+    description: Permite usar el comando /eco.
+    default: op
+  simpleeconomy.shopadmin:
+    description: Permite usar el comando /shopadmin.
+    default: op

@@ -2,7 +2,7 @@ package com.tuserverdor.interfacecore.placeholders;
 
 import com.tuserverdor.interfacecore.InterfaceCore;
 import com.tuservidor.ranksystem.RankSystem;
-import com.tuserverdor.simpleeconomy.SimpleEconomy; // ¡Línea corregida con la 'e'!
+import com.tuserverdor.simpleeconomy.SimpleEconomy;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -37,12 +37,12 @@ public class PluginPlaceholders extends PlaceholderExpansion {
 
     @Override
     public String onPlaceholderRequest(Player player, @NotNull String params) {
-        if(player == null) {
+        if (player == null) {
             return "";
         }
 
         // Placeholder: %server_rank%
-        if(params.equalsIgnoreCase("rank")) {
+        if (params.equalsIgnoreCase("rank")) {
             RankSystem rankSystemAPI = plugin.getRankSystem();
             if (rankSystemAPI != null) {
                 String rankName = rankSystemAPI.getPlayerDataManager().getPlayerRank(player.getUniqueId());
@@ -52,7 +52,7 @@ public class PluginPlaceholders extends PlaceholderExpansion {
         }
 
         // Placeholder: %server_money%
-        if(params.equalsIgnoreCase("money")) {
+        if (params.equalsIgnoreCase("money")) {
             SimpleEconomy economyAPI = (SimpleEconomy) plugin.getServer().getPluginManager().getPlugin("SimpleEconomy");
             if (economyAPI != null) {
                 double balance = economyAPI.getBalance(player, player.getWorld().getName());

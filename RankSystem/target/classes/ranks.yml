@@ -1,0 +1,22 @@
+# El rango por defecto que tendrán todos al entrar.
+default_rank: 'miembro'
+
+# Lista de todos los rangos
+ranks:
+  miembro:
+    prefix: '&7[Miembro]'
+    chat_color: '&7'
+    permissions:
+      - tpa.usar
+      - essentials.spawn
+    kits:
+      - diario
+  vip:
+    prefix: '&b&l[VIP]'
+    chat_color: '&b'
+    inheritance: 'miembro'
+    permissions:
+      - essentials.fly
+      - tpa.tpahere
+    kits:
+      - vip_mensual

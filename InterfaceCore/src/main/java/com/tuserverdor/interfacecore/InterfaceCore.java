@@ -7,22 +7,19 @@ import com.tuserverdor.interfacecore.listeners.PlayerConnectionListener;
 import com.tuserverdor.interfacecore.managers.PlayerDataManager;
 import com.tuserverdor.interfacecore.managers.ScoreboardManager;
 import com.tuserverdor.interfacecore.managers.TablistManager;
-import com.tuserverdor.interfacecore.placeholders.PluginPlaceholders;
-
+import com.tuserverdor.interfacecore.placeholders.PluginPlaceholders; // Importamos la nueva clase
+import com.tuservidor.ranksystem.RankSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
-
-// Asumiendo que tu clase principal de RankSystem se llama así
-import com.tuservidor.ranksystem.RankSystem; 
 
 public class InterfaceCore extends JavaPlugin {
 
     private PlayerDataManager playerDataManager;
     private ScoreboardManager scoreboardManager;
     private TablistManager tablistManager;
-    private RankSystem rankSystem; // Campo para guardar la API de RankSystem
+    private RankSystem rankSystem;
 
     private BukkitTask scoreboardTask;
 
@@ -35,11 +32,10 @@ public class InterfaceCore extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
-
+        
+        // --- LÍNEA AÑADIDA PARA REGISTRAR PLACEHOLDERS ---
         new PluginPlaceholders(this).register();
 
-        // --- AÑADIDO PARA LA COMUNICACIÓN ---
-        // Buscamos el plugin RankSystem y guardamos su instancia
         Plugin rankSystemPlugin = Bukkit.getPluginManager().getPlugin("RankSystem");
         if (rankSystemPlugin instanceof RankSystem) {
             this.rankSystem = (RankSystem) rankSystemPlugin;
@@ -77,8 +73,6 @@ public class InterfaceCore extends JavaPlugin {
         }, 0L, 20L);
     }
 
-    // --- MÉTODOS GETTER AÑADIDOS Y CORREGIDOS ---
-    
     public PlayerDataManager getPlayerDataManager() {
         return playerDataManager;
     }
@@ -91,11 +85,7 @@ public class InterfaceCore extends JavaPlugin {
         return tablistManager;
     }
 
-    // Este es el método que faltaba
     public RankSystem getRankSystem() {
         return rankSystem;
     }
-
-
-    
 }

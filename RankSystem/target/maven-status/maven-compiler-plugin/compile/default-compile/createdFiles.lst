@@ -1,0 +1,13 @@
+com\tuservidor\ranksystem\RankSystem.class
+com\tuservidor\ranksystem\commands\FlyCommand.class
+com\tuservidor\ranksystem\commands\RankCommand.class
+com\tuservidor\ranksystem\commands\KitCommand.class
+com\tuservidor\ranksystem\objects\Rank.class
+com\tuservidor\ranksystem\commands\SetRankCommand.class
+com\tuservidor\ranksystem\managers\KitManager.class
+com\tuservidor\ranksystem\commands\KitGUI.class
+com\tuservidor\ranksystem\objects\Kit.class
+com\tuservidor\ranksystem\listeners\PlayerJoinListener.class
+com\tuservidor\ranksystem\listeners\ChatListener.class
+com\tuservidor\ranksystem\managers\RankManager.class
+com\tuservidor\ranksystem\managers\PlayerDataManager.class
