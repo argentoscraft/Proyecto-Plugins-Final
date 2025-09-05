@@ -1,14 +1,15 @@
 package com.tuserverdor.interfacecore.managers;
 
 import com.tuserverdor.interfacecore.InterfaceCore;
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.Criteria;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
-import me.clip.placeholderapi.PlaceholderAPI;
 
 import java.util.List;
 
@@ -20,53 +21,48 @@ public class ScoreboardManager {
         this.plugin = plugin;
     }
 
-    public void setScoreboard(Player player) {
-        updatePlayerScoreboard(player);
-    }
-
     public void updatePlayerScoreboard(Player player) {
         PlayerDataManager playerDataManager = plugin.getPlayerDataManager();
-        PlayerData playerData = playerDataManager.getPlayerData(player);
+        if (playerDataManager == null) return;
 
+        PlayerData playerData = playerDataManager.getPlayerData(player);
         if (playerData == null || !playerData.isScoreboardActive()) {
-            // --- MENSAJE ESPÍA 3 ---
-            plugin.getLogger().info("Scoreboard para " + player.getName() + " está desactivado o no tiene datos. Limpiando su scoreboard.");
             player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
             return;
         }
 
-        // --- MENSAJE ESPÍA 4 ---
-        plugin.getLogger().info("Actualizando scoreboard para " + player.getName() + "...");
-
         Scoreboard board = player.getScoreboard();
-        if (board == null || board.getObjectives().isEmpty()) {
+        if (board == Bukkit.getScoreboardManager().getMainScoreboard()) {
             board = Bukkit.getScoreboardManager().getNewScoreboard();
         }
 
-        Objective objective = board.getObjective("InterfaceCore");
+        Objective objective = board.getObjective("info");
         if (objective == null) {
-            Component title = Component.text(format(PlaceholderAPI.setPlaceholders(player, plugin.getConfig().getString("scoreboard.title"))));
-            objective = board.registerNewObjective("InterfaceCore", "dummy", title);
+            Component title = parseText(plugin.getConfig().getString("scoreboard.title", "&e&lMI SERVIDOR"));
+            objective = board.registerNewObjective("info", Criteria.DUMMY, title);
+            objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         }
-
-        Component finalTitle = Component.text(format(PlaceholderAPI.setPlaceholders(player, plugin.getConfig().getString("scoreboard.title"))));
-        objective.displayName(finalTitle);
-        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
         for (String entry : board.getEntries()) {
             board.resetScores(entry);
         }
 
+        Component finalTitle = parseText(PlaceholderAPI.setPlaceholders(player, plugin.getConfig().getString("scoreboard.title")));
+        objective.displayName(finalTitle);
+
         List<String> lines = plugin.getConfig().getStringList("scoreboard.lines");
         for (int i = 0; i < lines.size(); i++) {
-            String line = lines.get(i);
-            objective.getScore(format(PlaceholderAPI.setPlaceholders(player, line))).setScore(lines.size() - i);
+            // Usamos un serializador de legado para que los códigos de color funcionen bien en las líneas
+            String parsedLine = PlaceholderAPI.setPlaceholders(player, lines.get(i));
+            Component lineComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(parsedLine);
+            // El scoreboard de Bukkit aún usa strings, así que lo volvemos a serializar
+            String finalLine = LegacyComponentSerializer.legacySection().serialize(lineComponent);
+            objective.getScore(finalLine).setScore(lines.size() - i);
         }
-
         player.setScoreboard(board);
     }
-
-    private String format(String text) {
-        return ChatColor.translateAlternateColorCodes('&', text);
+    
+    private Component parseText(String text) {
+        return LegacyComponentSerializer.legacyAmpersand().deserialize(text);
     }
 }
